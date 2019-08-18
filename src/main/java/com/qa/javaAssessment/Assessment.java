@@ -69,20 +69,49 @@ public class Assessment {
 	public boolean evenlySpaced(int a, int b, int c) {
 		
 		
-		boolean trueFalse;
+		int large = 0;
+		int medium = 0;
+		int small = 0;
 		
 		//a large b medium c small
 		if((a>b && a>c)&&(b>c)) {
-			
+			large = a;
+			medium = b;
+			small = c;
 		}
 		//b large, a medium, c small
-		else if ((b>a && b>c)&& (a>c)) {
-			
+		else if ((a>b && a>c)&& (c>b)) {
+			large = a;
+			medium = c;
+			small = b;
 		}
-		else if((c>a && c>b)&&())
+		else if((b>a && b>c)&&(a>c)) {
+			large = b;
+			medium = a;
+			small = c;
+		}
+		else if((b>a && b>c)&&(c>a)) {
+			large = b;
+			medium = c;
+			small = a;
+		}
+		else if((c>a && c>b)&&(a>b)) {
+			large = c;
+			medium = a;
+			small = b;
+		}
+		else if((c>a && c>b)&&(b>a)) {
+			large = c;
+			medium = b;
+			small = a;
+		}
 		
-		
-		return false;
+		if ((large - medium) == (medium - small)){
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	// Given a string and an int n, return a string that removes n letters from the 'middle' of the string.
