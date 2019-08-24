@@ -226,6 +226,98 @@ public class Assessment {
 	//largest("555 72 86 45 10") ==> 15
 	
 	public int largest(String arg1) {
-		return -1;
+		int i = 0;
+		int num;
+		int sum = 0;
+		int prevSum1 = 0;
+		int prevSum2 = 0;
+		
+		while (i<arg1.length()-1) {	
+		i++;
+		
+		switch(arg1.charAt(i)) {
+		case ' ':
+		{ 
+			if (i>4) {
+			prevSum2 = prevSum1;	
+			}
+			else {
+			prevSum1 = sum;
+			}
+			sum = 0;
+			break;
+		}
+		
+		case '1':
+		{
+			num = 1;
+			sum += num;
+			break;
+		}
+		case '2':
+		{
+			num = 2;
+			sum += num; 
+			break;
+		}
+		case '3':
+		{
+			num = 3;
+			sum += num;
+			break;
+		}
+		case '4':
+		{
+			num = 4;
+			sum += num; 
+			break;
+		}
+		case '5':
+		{
+			num = 5;
+			sum += num; 
+			break;
+		}
+		case '6':
+		{
+			num = 6;
+			sum += num; 
+			break;
+		}
+			
+		case '7':
+		{
+			num = 7;
+			sum += num; 
+			break;
+		}
+		case '8':
+		{
+			num = 8;
+			sum += num; 
+			break;
+		}
+		case '9':
+		{
+			num = 9;
+			sum += num; 
+			break;
+		}
+		}
+		
 	}
+		System.out.println(sum);
+		System.out.println(prevSum1);
+		System.out.println(prevSum2);
+		if(sum>prevSum1 && sum>prevSum2) {
+			return sum;
+		}
+		else if(prevSum1>sum && prevSum1>prevSum2) {
+			return prevSum1;
+		}
+		else {
+			return prevSum2;
+		}
+	
+}
 }
