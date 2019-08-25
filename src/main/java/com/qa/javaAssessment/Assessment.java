@@ -121,18 +121,21 @@ public class Assessment {
 	// nMid("Chocolate", 3) ==> "Choate"
 	// nMid("Chocolate", 1) ==> "Choclate"
 
-	//UNFINISHED
+	//FINISHED
 	public String nMid(String input, int a) {
 		
 		String returnString = "";
 		
+		int half = input.length()/2;
+		int halfA = a/2;
+		
 		for(int i = 0; i<input.length();i++) {
-			if(i == input.length()/2) {
-			returnString = input.substring(i,i+a);
+			if(i < half-halfA || i > half + halfA) {
+			returnString += input.substring(i,i+1);
 		}
 		}
 		
-		return "";
+		return returnString;
 	}
 
 
@@ -152,14 +155,19 @@ public class Assessment {
 		for(int i = 0; i<input.length()-1;i++) {
 			
 			if(input.substring(i, i+1) == input.substring(i+1,i+2)){
-				if(prevCount<=count)
 				count +=1;
 				prevCount = count;
 			}
-			
+			else {
+				count = 1;
+			}
 		}
-		return count;
-
+		if (count>prevCount) {
+			return count;
+		}
+		else {
+			return prevCount;
+		}
 	}
 	
 	//given a string - return the number of times "am" appears in the String ignoring case -
@@ -225,9 +233,11 @@ public class Assessment {
 	//largest("15 72 80 164") ==> 11
 	//largest("555 72 86 45 10") ==> 15
 	
+	
+	//Finished
 	public int largest(String arg1) {
 		int i = 0;
-		int num;
+		int num = 0;
 		int sum = 0;
 		int prevSum1 = 0;
 		int prevSum2 = 0;
@@ -236,15 +246,23 @@ public class Assessment {
 		i++;
 		
 		switch(arg1.charAt(i)) {
+		
 		case ' ':
 		{ 
 			if (i>4) {
-			prevSum2 = prevSum1;	
+			prevSum2 = prevSum1 + num;	
 			}
 			else {
 			prevSum1 = sum;
 			}
 			sum = 0;
+			break;
+		}
+		
+		case '0':
+		{
+			num = 0;
+			sum += 0;
 			break;
 		}
 		
